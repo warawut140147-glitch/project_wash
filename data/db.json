@@ -1,0 +1,50 @@
+{
+  "machines": [
+    {
+      "id": "w1",
+      "name": "ตู้ซักผ้า 1",
+      "status": "available"
+    },
+    {
+      "id": "w2",
+      "name": "ตู้ซักผ้า 2",
+      "status": "busy"
+    },
+    {
+      "id": "w3",
+      "name": "ตู้ซักผ้า 3",
+      "status": "available"
+    }
+  ],
+  "residents": [
+    {
+      "id": "r1790938752811",
+      "name": "วุ้น",
+      "room": "101",
+      "phone": "0801234567",
+      "code": "1234"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "b1790938778945",
+      "machineId": "w1",
+      "room": "101",
+      "name": "วุ้น",
+      "startAt": 1790938778945,
+      "endAt": 1790942378945,
+      "finished": true,
+      "cancelled": true
+    },
+    {
+      "id": "b1790938831567",
+      "machineId": "w2",
+      "room": "101",
+      "name": "วุ้น",
+      "startAt": 1790938831567,
+      "endAt": 1790940631567,
+      "finished": false,
+      "cancelled": false
+    }
+  ]
+}

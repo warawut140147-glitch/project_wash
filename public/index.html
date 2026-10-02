@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ระบบจองซักผ้าคอนโด</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+  <header class="app-header">
+    <div>
+      <h1>ระบบจองซักผ้าคอนโด</h1>
+      <p>เช็คสถานะตู้ซักผ้า จองคิว พร้อมแจ้งเตือนเมื่อซักเสร็จ</p>
+    </div>
+  </header>
+
+  <section id="login-section" class="card login-card">
+    <h2>เข้าสู่ระบบลูกบ้าน</h2>
+    <form id="login-form">
+      <label for="room">เลขห้อง</label>
+      <input id="room" required autocomplete="username" placeholder="เช่น 101">
+      <label for="code">รหัสเข้าใช้งาน</label>
+      <input id="code" type="password" required autocomplete="current-password" placeholder="รหัสที่แอดมินมอบให้">
+      <p style="margin-top:14px"><button class="btn primary" type="submit" style="width:100%">เข้าสู่ระบบ</button></p>
+      <p class="hint">หากยังไม่มีรหัส กรุณาติดต่อแอดมินของคอนโด</p>
+    </form>
+  </section>
+
+  <main id="main-section" class="hidden">
+    <div class="header-row">
+      <h2 id="welcome"></h2>
+      <button id="logout-btn" class="btn ghost small">ออกจากระบบ</button>
+    </div>
+
+    <section id="my-booking" class="card my-booking-box hidden">
+      <p class="machine-label">กำลังซักที่ <strong id="booking-machine"></strong> (<span id="booking-room"></span>)</p>
+      <div class="countdown" id="booking-countdown">--:--</div>
+      <div class="progress"><div class="progress-bar" id="booking-progress"></div></div>
+      <button id="cancel-booking" class="btn danger small">ยกเลิกการจอง</button>
+    </section>
+
+    <h2 style="margin: 8px 0 14px; color:#075985; font-weight:600;">สถานะตู้ซักผ้า</h2>
+    <div id="machines-grid" class="machine-grid"></div>
+  </main>
+
+  <footer class="page-footer"><a href="/admin.html">เข้าสู่ระบบแอดมิน</a></footer>
+</div>
+
+<div id="modal" class="modal-overlay hidden">
+  <div class="modal">
+    <h3>จอง <span id="modal-machine-name"></span></h3>
+    <p class="muted">เลือกระยะเวลาการซัก เมื่อครบเวลาระบบจะแจ้งเตือนทันที</p>
+    <label for="duration">ระยะเวลา</label>
+    <select id="duration">
+      <option value="30">30 นาที</option>
+      <option value="45">45 นาที</option>
+      <option value="60" selected>60 นาที</option>
+      <option value="90">90 นาที</option>
+      <option value="120">120 นาที</option>
+    </select>
+    <div style="display:flex; gap:10px; margin-top:16px;">
+      <button id="confirm-book" class="btn primary" style="flex:1">ยืนยันการจอง</button>
+      <button id="close-modal" class="btn ghost">ปิด</button>
+    </div>
+  </div>
+</div>
+
+<div id="done-banner" class="done-banner hidden"></div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="js/resident.js"></script>
+</body>
+</html>

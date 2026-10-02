@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แอดมิน - ระบบจองซักผ้าคอนโด</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+  <header class="app-header">
+    <div>
+      <h1>ระบบจองซักผ้า - หน้าแอดมิน</h1>
+      <p>จัดการสถานะตู้ซักผ้าและข้อมูลลูกบ้าน</p>
+    </div>
+    <a href="/" class="btn ghost small">หน้าลูกบ้าน</a>
+  </header>
+
+  <section id="login-section" class="card login-card">
+    <h2>เข้าสู่ระบบแอดมิน</h2>
+    <form id="login-form">
+      <label for="admin-password">รหัสผ่านแอดมิน</label>
+      <input id="admin-password" type="password" required placeholder="กรอกรหัสผ่าน">
+      <p style="margin-top:14px"><button class="btn primary" type="submit" style="width:100%">เข้าสู่ระบบ</button></p>
+      <p class="hint">รหัสผ่านเริ่มต้นคือ admin1234 (แก้ไขได้ที่ไฟล์ server.js)</p>
+    </form>
+  </section>
+
+  <main id="admin-section" class="hidden">
+    <div class="header-row">
+      <h2>สถานะตู้ซักผ้าทั้งหมด</h2>
+      <button id="logout-btn" class="btn ghost small">ออกจากระบบ</button>
+    </div>
+    <p class="muted" style="margin-bottom:12px">กดปุ่มเพื่ออัปเดตสถานะตู้ซักผ้าว่าว่าง กำลังใช้งาน หรืออยู่ระหว่างปรับปรุง</p>
+    <div id="machines-grid" class="machine-grid"></div>
+
+    <div class="card">
+      <h3>เพิ่มตู้ซักผ้าใหม่</h3>
+      <form id="add-machine-form" class="inline-form">
+        <input id="machine-name" placeholder="ชื่อตู้ เช่น ตู้ซักผ้า 4" required>
+        <button class="btn primary" type="submit">เพิ่มตู้ซักผ้า</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>เพิ่มลูกบ้านใหม่</h3>
+      <form id="add-resident-form" class="resident-form">
+        <div><label>ชื่อ-นามสกุล</label><input id="resident-name" required placeholder="ชื่อ-นามสกุล"></div>
+        <div><label>เลขห้อง</label><input id="resident-room" required placeholder="เช่น 205"></div>
+        <div><label>เบอร์โทรศัพท์</label><input id="resident-phone" placeholder="เช่น 0812345678"></div>
+        <div><label>รหัสเข้าใช้งาน</label><input id="resident-code" required placeholder="ตัวเลข 4 หลัก"></div>
+        <button class="btn primary" type="submit">เพิ่มลูกบ้าน</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>รายชื่อลูกบ้านในคอนโด</h3>
+      <table>
+        <thead><tr><th>ห้อง</th><th>ชื่อ</th><th>เบอร์โทร</th><th>รหัส</th><th></th></tr></thead>
+        <tbody id="residents-body"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="js/admin.js"></script>
+</body>
+</html>
